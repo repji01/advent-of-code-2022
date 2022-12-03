@@ -19,48 +19,41 @@ from utils import *
 
 def download_input_data():
     global fin
-    global lines
     advent.setup(2022, 3, dry_run=False)
     fin = advent.get_input()
     lines = get_lines(fin.readlines())
-    #lines = get_lines(xxx)
     return lines
-
-
 
 
 def part01(lines):
     value = 0
+
     for line in lines:
-        size = int(len(line)/2)
-
-        items = [line[:size],line[size:]]
-        itemX=''
-        for item in items[0]:
-            if item in items[1]:
-                itemx = item
-        if itemx.isupper():
-            value += ord(itemx) - 64 + 26
+        items = [line[:len(line) // 2], line[len(line) // 2:]]
+        item, = set(items[0]) & set(items[1])
+        if item.isupper():
+            value += 27 + ord(item) - ord('A')
         else:
-            value += ord(itemx) - 96
-
+            value += 1 + ord(item) - ord('a')
 
     advent.submit_answer(1, value)
 
 def part02(lines):
     value = 0
-    for idx in range(int(len(lines) / 3)):
-        items = [lines[3*idx], lines[3*idx+1], lines[3*idx+2]]
-        itemX = ''
-        for item in items[0]:
-            if (item in items[1]) and (item in items[2]):
-                itemx = item
-        if itemx.isupper():
-            value += ord(itemx) - 64 + 26
-        else:
-            value += ord(itemx) - 96
-    advent.submit_answer(2, value)
+    items = iter(lines)
 
+    while True:
+        try:
+            item, = set(next(items)) & set(next(items)) & set(next(items))
+        except StopIteration:
+            break
+        else:
+            if item.isupper():
+                value += 27 + ord(item) - ord('A')
+            else:
+                value += 1 + ord(item) - ord('a')
+
+    advent.submit_answer(2, value)
 
 
 if __name__ == "__main__":
@@ -69,4 +62,3 @@ if __name__ == "__main__":
 
     part01(lines)
     part02(lines)
-
