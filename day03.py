@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""day01.py: Advent of Code 2022 --- Day 2: Paper Scissors ---
-   https://adventofcode.com/2022/day/2
+"""day01.py: Advent of Code 2022 --- Day 3: Rucksack Reorganization ---
+   https://adventofcode.com/2022/day/3
 """
 
 __version__ = "1.0"
@@ -16,12 +16,6 @@ import os
 import advent
 from utils import *
 
-xxx= """vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw"""
 
 def download_input_data():
     global fin
