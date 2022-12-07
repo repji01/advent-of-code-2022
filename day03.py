@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""day01.py: Advent of Code 2022 --- Day 3: Rucksack Reorganization ---
+"""day03.py: Advent of Code 2022 --- Day 3: Rucksack Reorganization ---
    https://adventofcode.com/2022/day/3
 """
 
