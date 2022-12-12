@@ -107,6 +107,7 @@ def get_lines(file, rstrip=True, lstrip=True, as_tuple=False):
 		return kind(map(str.lstrip, lines))
 	return kind(lines)
 
+
 def get_char_matrix(file, rstrip=True, lstrip=True, as_tuples=False):
 	kind  = tuple if as_tuples else list
 	lines = map(lambda l: l.rstrip('\n'), file)
@@ -118,6 +119,13 @@ def get_char_matrix(file, rstrip=True, lstrip=True, as_tuples=False):
 	if lstrip:
 		return kind(kind(l.lstrip()) for l in lines)
 	return kind(map(kind, lines))
+
+def parse_coords_int(s: str) -> dict[tuple[int, int], int]:
+    coords = {}
+    for y, line in enumerate(s.splitlines()):
+        for x, c in enumerate(line):
+            coords[(x, y)] = int(c)
+    return coords
 
 #################################################
 
